@@ -1,15 +1,13 @@
 name: Trigger Remote Workflow
-
 on:
-  pull_request_target:
+  release:
     types:
-      - closed
+      - published
 
 jobs:
   trigger-remote-workflow:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
